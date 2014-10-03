@@ -38,3 +38,13 @@ $app->get('/practitioners/', function() use ($app) {
     $practitioners = $app['dao.practitioner']->findAll();
     return $app['twig']->render('practitioners.html.twig', array('practitioners' => $practitioners));
 });
+
+$app->get('/practitioners/{id}', function($id) use ($app) {
+    $practitioner = $app['dao.practitioner']->find($id);
+    return $app['twig']->render('practitioner.html.twig', array('practitioner' => $practitioner));
+});
+
+$app->get('/practitioners/search/', function() use ($app) {
+    $practitioners_type = $app['dao.practitioner_type']->findAll();
+    return $app['twig']->render('practitioners_search.html.twig', array('practitioners_type' => $practitioners_type));
+});

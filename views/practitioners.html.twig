@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 {% set practitionerMenu = true %}
 
-{% block title %}Médicaments{% endblock %}
+{% block title %}Practiciens{% endblock %}
 
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
@@ -11,7 +11,7 @@
             <thead>
                 <tr>
                     <th>Nom </th>
-                    <th>Prénom</th>
+                    
                     <th>Type de practicien</th>
                     
                     
@@ -19,8 +19,9 @@
             </thead>
             {% for prac in practitioners %}
                 <tr>
-                    <td>{{ prac.practitioner_name }}</td>
-                    <td>{{ prac.practitioner_first_name }}</td>
+                    <td><a href="/practitioners/{{ prac.practitioner_id}}">  {{ prac.practitioner_first_name}}     {{ prac.practitioner_name}} </a></td>
+                    
+                   
                     
                     
                     

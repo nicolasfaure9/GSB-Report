@@ -1,0 +1,48 @@
+{% extends "layout.html.twig" %}
+{% set practitionerMenu = true %}
+
+{% block title %}{{ practitioner.practitioner_name }}{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+<div class="well">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Nom</label>
+            <div class="col-sm-9">
+                <p class="form-control-static">{{ practitioner.practitioner_name }}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Prénom</label>
+            <div class="col-sm-9">
+            <p class="form-control-static">{{ practitioner.practitioner_first_name }}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Adresse</label>
+            <div class="col-sm-9">
+                <p class="form-control-static">{{ practitioner.practitioner_address }}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Code Postal</label>
+            <div class="col-sm-9">
+                <p class="form-control-static">{{ practitioner.practitioner_zip_code }}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Ville</label>
+            <div class="col-sm-9">
+                <p class="form-control-static">{{ practitioner.practitioner_city }}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Coefficient notoriete</label>
+            <div class="col-sm-9">
+                <p class="form-control-static">{{ practitioner.notoriety_coefficient}}</p>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

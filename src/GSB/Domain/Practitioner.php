@@ -10,7 +10,7 @@ class Practitioner
     private $practitioner_name;
     private $practitioner_first_name;
     private $practitioner_address;
-    private $practitioner_zipe_code;
+    private $practitioner_zip_code;
     private $practitioner_city;
     private $notoriety_coefficient;
     
@@ -35,8 +35,8 @@ class Practitioner
         return $this->practitioner_address;
     }
 
-    public function getPractitioner_zipe_code() {
-        return $this->practitioner_zipe_code;
+    public function getPractitioner_zip_code() {
+        return $this->practitioner_zip_code;
     }
 
     public function getPractitioner_city() {
@@ -67,8 +67,8 @@ class Practitioner
         $this->practitioner_address = $practitioner_address;
     }
 
-    public function setPractitioner_zipe_code($practitioner_zipe_code) {
-        $this->practitioner_zipe_code = $practitioner_zipe_code;
+    public function setPractitioner_zip_code($practitioner_zip_code) {
+        $this->practitioner_zip_code = $practitioner_zip_code;
     }
 
     public function setPractitioner_city($practitioner_city) {

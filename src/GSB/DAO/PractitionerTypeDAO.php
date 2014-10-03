@@ -51,7 +51,7 @@ class PractitionerTypeDAO extends DAO
     protected function buildDomainObject($row) {
         $practitioner_type = new PractitionerType();
         $practitioner_type->setPractitioner_type_id($row['practitioner_type_id']);
-        //$practitioner_type->setPractitioner_type_code($row['practitioner_type_code']);
+       // $practitioner_type->setPractitioner_type_code($row['practitioner_type_code']);
         //$practitioner_type->setPractitioner_type_name($row['practitioner_type_name']);
         //$practitioner_type->setPractitioner_type_place($row['practitioner_type_place']);
         
