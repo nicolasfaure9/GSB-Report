@@ -4,8 +4,8 @@ namespace GSB\DAO;
 
 use GSB\Domain\Practitioner;
 
-class PractitionerDAO extends DAO {
-
+class PractitionerDAO extends DAO
+{
     /**
      * @var \GSB\DAO\FamilyDAO
      */
@@ -23,14 +23,14 @@ class PractitionerDAO extends DAO {
     public function findAll() {
         $sql = "select * from practitioner order by practitioner_name";
         $result = $this->getDb()->fetchAll($sql);
-
+        
         // Converts query result to an array of domain objects
-        $pracs = array();
+        $practitioner = array();
         foreach ($result as $row) {
-            $pracId = $row['practitioner_id'];
-            $pracs[$pracId] = $this->buildDomainObject($row);
+            $practitionerId = $row['practitioner_id'];
+            $practitioner[$practitionerId] = $this->buildDomainObject($row);
         }
-        return $pracs;
+        return $practitioner;
     }
 
     /**
@@ -40,17 +40,17 @@ class PractitionerDAO extends DAO {
      *
      * @return array The list of drugs.
      */
-    public function findAllByPractitionerType($pracId) {
-        $sql = "select * from practitioner where practitioner_id=? order by practitioner_name";
-        $result = $this->getDb()->fetchAll($sql, array($pracId));
-
+    public function findAllByPractitionerType($practitionerTypeDAO) {
+        $sql = "select * from practitioner where practitioner_type_id=? order by practitioner_name";
+        $result = $this->getDb()->fetchAll($sql, array($practitionerTypeDAO));
+        
         // Convert query result to an array of domain objects
-        $pracs = array();
+        $practitioner = array();
         foreach ($result as $row) {
-            $pracId = $row['practitioner_id'];
-            $pracs[$pracId] = $this->buildDomainObject($row);
+            $practitionerId = $row['practitioner_id'];
+            $practitioner[$practitionerId] = $this->buildDomainObject($row);
         }
-        return $pracs;
+        return $practitioner;
     }
 
     /**
@@ -78,20 +78,19 @@ class PractitionerDAO extends DAO {
      * @return \GSB\Domain\Drug
      */
     protected function buildDomainObject($row) {
-        $practitioner_type_id = $row['practitioner_type_id'];
-        $practitioner_type = $this->practitionerTypeDAO->find($practitioner_type_id);
+        $practitionerId = $row['practitioner_type_id'];
+        $family = $this->practitionerTypeDAO->find($practitionerId);
 
         $practitioner = new Practitioner();
-        $practitioner->setPractitioner_id($row['practitioner_id']);
-
-        $practitioner->setPractitioner_name($row['practitioner_name']);
-        $practitioner->setPractitioner_first_name($row['practitioner_first_name']);
-        $practitioner->setPractitioner_address($row['practitioner_address']);
-        $practitioner->setPractitioner_zip_code($row['practitioner_zip_code']);
-        $practitioner->setPractitioner_city($row['practitioner_city']);
-        $practitioner->setNotoriety_coefficient($row['notoriety_coefficient']);
-        $practitioner->setPractitioner_type_id($practitioner_type);
+        $practitioner->setId($row['practitioner_id']);
+        $practitioner->setType_id($row['practitioner_type_id']);
+        $practitioner->setName($row['practitioner_name']);
+        $practitioner->setFirst_name($row['practitioner_first_name']);
+        $practitioner->setAddress($row['practitioner_address']);
+        $practitioner->setZip_code($row['practitioner_zip_code']);
+        $practitioner->setCity($row['practitioner_city']);
+        $practitioner->setCoefficient($row['notoriety_coefficient']);
+        $practitioner->setType_id($family);
         return $practitioner;
     }
-
 }

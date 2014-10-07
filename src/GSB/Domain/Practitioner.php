@@ -4,89 +4,78 @@ namespace GSB\Domain;
 
 class Practitioner
 {
+    private $id;
+    private $type_id;
+    private $name;
+    private $first_name;
+    private $address;
+    private $zip_code;
+    private $city;
+    private $coefficient;
     
-     private $practitioner_id;
-    private $practitioner_type_id;
-    private $practitioner_name;
-    private $practitioner_first_name;
-    private $practitioner_address;
-    private $practitioner_zip_code;
-    private $practitioner_city;
-    private $notoriety_coefficient;
-    
-    
-    public function getPractitioner_id() {
-        return $this->practitioner_id;
+    public function getId() {
+        return $this->id;
     }
 
-    public function getPractitioner_type_id() {
-        return $this->practitioner_type_id;
+    public function getType_id() {
+        return $this->type_id;
     }
 
-    public function getPractitioner_name() {
-        return $this->practitioner_name;
+    public function getName() {
+        return $this->name;
     }
 
-    public function getPractitioner_first_name() {
-        return $this->practitioner_first_name;
+    public function getFirst_name() {
+        return $this->first_name;
     }
 
-    public function getPractitioner_address() {
-        return $this->practitioner_address;
+    public function getAddress() {
+        return $this->address;
     }
 
-    public function getPractitioner_zip_code() {
-        return $this->practitioner_zip_code;
+    public function getZip_code() {
+        return $this->zip_code;
     }
 
-    public function getPractitioner_city() {
-        return $this->practitioner_city;
+    public function getCity() {
+        return $this->city;
     }
 
-    public function getNotoriety_coefficient() {
-        return $this->notoriety_coefficient;
+    public function getCoefficient() {
+        return $this->coefficient;
     }
 
-    public function setPractitioner_id($practitioner_id) {
-        $this->practitioner_id = $practitioner_id;
+    public function setId($id) {
+        $this->id = $id;
     }
 
-    public function setPractitioner_type_id($practitioner_type_id) {
-        $this->practitioner_type_id = $practitioner_type_id;
+    public function setType_id($type_id) {
+        $this->type_id = $type_id;
     }
 
-    public function setPractitioner_name($practitioner_name) {
-        $this->practitioner_name = $practitioner_name;
+    public function setName($name) {
+        $this->name = $name;
     }
 
-    public function setPractitioner_first_name($practitioner_first_name) {
-        $this->practitioner_first_name = $practitioner_first_name;
+    public function setFirst_name($first_name) {
+        $this->first_name = $first_name;
     }
 
-    public function setPractitioner_address($practitioner_address) {
-        $this->practitioner_address = $practitioner_address;
+    public function setAddress($address) {
+        $this->address = $address;
     }
 
-    public function setPractitioner_zip_code($practitioner_zip_code) {
-        $this->practitioner_zip_code = $practitioner_zip_code;
+    public function setZip_code($zip_code) {
+        $this->zip_code = $zip_code;
     }
 
-    public function setPractitioner_city($practitioner_city) {
-        $this->practitioner_city = $practitioner_city;
+    public function setCity($city) {
+        $this->city = $city;
     }
 
-    public function setNotoriety_coefficient($notoriety_coefficient) {
-        $this->notoriety_coefficient = $notoriety_coefficient;
+    public function setCoefficient($coefficient) {
+        $this->coefficient = $coefficient;
     }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

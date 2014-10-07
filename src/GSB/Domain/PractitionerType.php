@@ -4,56 +4,45 @@ namespace GSB\Domain;
 
 class PractitionerType
 {
-     /**
-     * Family id.
-     *
-     * @var integer
-     */
-    private $practitioner_type_id;
-
-    /**
-     * Name.
-     *
-     * @var string
-     */
-    private $practitioner_type_code;
+    private $type_id;
+    private $type_code;
+    private $type_name;
+    private $type_place;
     
-    private $practitioner_type_name;
+    public function getType_id() {
+        return $this->type_id;
+    }
+
+    public function getType_code() {
+        return $this->type_code;
+    }
+
+    public function getType_name() {
+        return $this->type_name;
+    }
+
+    public function getType_place() {
+        return $this->type_place;
+    }
+
+    public function setType_id($type_id) {
+        $this->type_id = $type_id;
+    }
+
+    public function setType_code($type_code) {
+        $this->type_code = $type_code;
+    }
+
+    public function setType_name($type_name) {
+        $this->type_name = $type_name;
+    }
+
+    public function setType_place($type_place) {
+        $this->type_place = $type_place;
+    }
+
+
     
-    private $practitioner_type_place;
     
-  
-    public function getPractitioner_type_code() {
-        return $this->practitioner_type_code;
-    }
-
-    public function setPractitioner_type_code($practitioner_type_code) {
-        $this->practitioner_type_code = $practitioner_type_code;
-    }
     
-    public function getPractitioner_type_name() {
-        return $this->practitioner_type_name;
-    }
-
-    public function setPractitioner_type_name($practitioner_type_name) {
-        $this->practitioner_type_name= $practitioner_type_name;
-    }
-
-    
-    public function getPractitioner_type_place() {
-        return $this->practitioner_type_place;
-    }
-
-    public function setPractitioner_type_place($practitioner_type_place) {
-        $this->practitioner_type_place = $practitioner_type_place;
-    }
-    public function getPractitioner_type_id() {
-        return $this->practitioner_type_id;
-    }
-
-    public function setPractitioner_type_id($practitioner_type_id) {
-        $this->practitioner_type_id = $practitioner_type_id;
-    }
-
-   
 }
