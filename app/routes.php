@@ -75,9 +75,7 @@ $app->get('/login', function(Request $request) use ($app) {
 })->bind('login');  // named route so that path('login') works in Twig templates
 
 
-
 $app->get('/profil/', function($id) use ($app) {
     $visitor = $app['dao.visitor']->find($id);
-    return $app['twig']->render('profil.html.twig', array('practitioner' => $visitor));
+    return $app['twig']->render('practitioner.html.twig', array('visitor' => $visitor));
 });
-

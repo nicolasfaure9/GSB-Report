@@ -2,14 +2,17 @@
 
 // Register global error and exception handlers
 use Symfony\Component\Debug\ErrorHandler;
+
 ErrorHandler::register();
+
 use Symfony\Component\Debug\ExceptionHandler;
+
 ExceptionHandler::register();
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/../views',
+    'twig.path' => __DIR__ . '/../views',
 ));
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
@@ -49,7 +52,8 @@ $app['dao.practitioner'] = $app->share(function ($app) {
 });
 
 $app['dao.visitor'] = $app->share(function ($app) {
-    $VisitorDAO = new GSB\DAO\VisitorDAO($app['db']);
-    $VisitorDAO->setPractitionerTypeDAO($app['dao.visitor']);
-    return $VisitorDAO;
+    $visitorDAO = new GSB\DAO\VisitorDAO($app['db']);
+    $visitorDAO->setVisitorDAO($app['dao.visitor']);
+
+    return $visitorDAO;
 });

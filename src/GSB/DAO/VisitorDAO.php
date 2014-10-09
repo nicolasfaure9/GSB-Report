@@ -10,6 +10,10 @@ use GSB\Domain\Visitor;
 
 class VisitorDAO extends DAO implements UserProviderInterface
 {
+    
+     public function setVisitorDAO($VisitorDAO) {
+        $this->VisitorDAO = $VisitorDAO;
+    }
     /**
      * Returns a user matching the supplied id.
      *
