@@ -1,5 +1,6 @@
 <?php
 
+
 namespace GSB\DAO;
 
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -11,9 +12,7 @@ use GSB\Domain\Visitor;
 class VisitorDAO extends DAO implements UserProviderInterface
 {
     
-     public function setVisitorDAO($VisitorDAO) {
-        $this->VisitorDAO = $VisitorDAO;
-    }
+    
     /**
      * Returns a user matching the supplied id.
      *
@@ -78,6 +77,7 @@ class VisitorDAO extends DAO implements UserProviderInterface
         $visitor->setPassword($row['password']);
         $visitor->setSalt($row['salt']);
         $visitor->setRole($row['role']);
+        
         return $visitor;
     }
 }

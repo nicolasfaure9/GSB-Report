@@ -53,7 +53,7 @@ $app['dao.practitioner'] = $app->share(function ($app) {
 
 $app['dao.visitor'] = $app->share(function ($app) {
     $visitorDAO = new GSB\DAO\VisitorDAO($app['db']);
-    $visitorDAO->setVisitorDAO($app['dao.visitor']);
+  
 
     return $visitorDAO;
 });

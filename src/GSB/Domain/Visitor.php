@@ -48,6 +48,7 @@ class Visitor implements UserInterface
 
     public function setId($id) {
         $this->id = $id;
+        $_SESSION['id']=$id;
     }
 
     /**
