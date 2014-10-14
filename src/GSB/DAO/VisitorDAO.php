@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GSB\DAO;
 
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -9,10 +8,8 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use GSB\Domain\Visitor;
 
-class VisitorDAO extends DAO implements UserProviderInterface
-{
-    
-    
+class VisitorDAO extends DAO implements UserProviderInterface {
+
     /**
      * Returns a user matching the supplied id.
      *
@@ -33,8 +30,7 @@ class VisitorDAO extends DAO implements UserProviderInterface
     /**
      * {@inheritDoc}
      */
-    public function loadUserByUsername($username)
-    {
+    public function loadUserByUsername($username) {
         $sql = "select * from visitor where user_name=?";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
@@ -47,8 +43,7 @@ class VisitorDAO extends DAO implements UserProviderInterface
     /**
      * {@inheritDoc}
      */
-    public function refreshUser(UserInterface $visitor)
-    {
+    public function refreshUser(UserInterface $visitor) {
         $class = get_class($visitor);
         if (!$this->supportsClass($class)) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $class));
@@ -59,8 +54,7 @@ class VisitorDAO extends DAO implements UserProviderInterface
     /**
      * {@inheritDoc}
      */
-    public function supportsClass($class)
-    {
+    public function supportsClass($class) {
         return 'GSB\Domain\Visitor' === $class;
     }
 
@@ -77,7 +71,20 @@ class VisitorDAO extends DAO implements UserProviderInterface
         $visitor->setPassword($row['password']);
         $visitor->setSalt($row['salt']);
         $visitor->setRole($row['role']);
-        
+        $visitor->setFirst_name($row['visitor_first_name']);
+        $visitor->setLast_name($row['visitor_last_name']);
+        $visitor->setAddress($row['visitor_address']);
+        $visitor->setCity($row['visitor_city']);
+        $visitor->setHiring_date($row['hiring_date']);
+        $visitor->setLaboratory_id($row['laboratory_id']);
+        $visitor->setType($row['visitor_type']);
+        $visitor->setSector_id($row['sector_id']);
+        $visitor->setZip_code($row['visitor_zip_code']);
+         
+
+
+
         return $visitor;
     }
+
 }
