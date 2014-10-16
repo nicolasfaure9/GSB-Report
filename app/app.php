@@ -2,21 +2,17 @@
 
 // Register global error and exception handlers
 use Symfony\Component\Debug\ErrorHandler;
-
 ErrorHandler::register();
-
 use Symfony\Component\Debug\ExceptionHandler;
-
 ExceptionHandler::register();
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/../views',
+    'twig.path' => __DIR__.'/../views',
 ));
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
-
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'login' => array(
@@ -33,6 +29,9 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+
 // Register services.
 $app['dao.family'] = $app->share(function ($app) {
     return new GSB\DAO\FamilyDAO($app['db']);
@@ -50,10 +49,13 @@ $app['dao.practitioner'] = $app->share(function ($app) {
     $practitionerDAO->setPractitionerTypeDAO($app['dao.practitionertype']);
     return $practitionerDAO;
 });
-
 $app['dao.visitor'] = $app->share(function ($app) {
-    $visitorDAO = new GSB\DAO\VisitorDAO($app['db']);
-  
+    return new GSB\DAO\VisitorDAO($app['db']);
+});
 
-    return $visitorDAO;
+$app['dao.report'] = $app->share(function ($app) {
+     $reportDAO = new GSB\DAO\ReportDAO($app['db']);
+    $reportDAO->setPractitionerDAO($app['dao.practitioner']);
+    $reportDAO->setVisitorDAO($app['dao.visitor']);
+    return $reportDAO;
 });

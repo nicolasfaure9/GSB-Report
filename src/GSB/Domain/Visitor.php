@@ -6,31 +6,64 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class Visitor implements UserInterface
 {
-     private $sector_id;
-    private $laboratory_id;
-    private $last_name;
-    private $first_name;
-    private $hiring_date;
-    private $address;
-    private $zip_code;
-    private $city;
-    private $type;
     /**
-     * User id.
+     * Visitor id.
      *
      * @var integer
      */
     private $id;
 
     /**
-     * User name.
+     * Last name.
+     *
+     * @var string
+     */
+    private $lastName;
+
+    /**
+     * First name.
+     *
+     * @var string
+     */
+    private $firstName;
+
+    /**
+     * Address.
+     *
+     * @var string
+     */
+    private $address;
+
+    /**
+     * Zip Code.
+     *
+     * @var string
+     */
+    private $zipCode;
+
+    /**
+     * City.
+     *
+     * @var string
+     */
+    private $city;
+
+    /**
+     * Hiring date.
+     *
+     * @var DateTime
+     */
+    private $hiringDate;
+
+    /**
+     * User name (used for authentication).
      *
      * @var string
      */
     private $username;
 
     /**
-     * User password.
+     * Password.
      *
      * @var string
      */
@@ -45,87 +78,10 @@ class Visitor implements UserInterface
 
     /**
      * Role.
-     * Values : ROLE_USER or ROLE_ADMIN.
      *
      * @var string
      */
     private $role;
-    
-    
-    public function getSector_id() {
-        return $this->sector_id;
-    }
-
-    public function getLaboratory_id() {
-        return $this->laboratory_id;
-    }
-
-    public function getLast_name() {
-        return $this->last_name;
-    }
-
-    public function getFirst_name() {
-        return $this->first_name;
-    }
-
-    public function getHiring_date() {
-        return $this->hiring_date;
-    }
-
-    public function getAddress() {
-        return $this->address;
-    }
-
-    public function getZip_code() {
-        return $this->zip_code;
-    }
-
-    public function getCity() {
-        return $this->city;
-    }
-
-    public function getType() {
-        return $this->type;
-    }
-
-    public function setSector_id($sector_id) {
-        $this->sector_id = $sector_id;
-    }
-
-    public function setLaboratory_id($laboratory_id) {
-        $this->laboratory_id = $laboratory_id;
-    }
-
-    public function setLast_name($last_name) {
-        $this->last_name = $last_name;
-    }
-
-    public function setFirst_name($first_name) {
-        $this->first_name = $first_name;
-    }
-
-    public function setHiring_date($hiring_date) {
-        $this->hiring_date = $hiring_date;
-    }
-
-    public function setAddress($address) {
-        $this->address = $address;
-    }
-
-    public function setZip_code($zip_code) {
-        $this->zip_code = $zip_code;
-    }
-
-    public function setCity($city) {
-        $this->city = $city;
-    }
-
-    public function setType($type) {
-        $this->type = $type;
-    }
-
-                
-    
 
     public function getId() {
         return $this->id;
@@ -133,7 +89,126 @@ class Visitor implements UserInterface
 
     public function setId($id) {
         $this->id = $id;
-        
+    }
+
+    /**
+     * Set last name.
+     *
+     * @param string $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+    
+    /**
+     * Returns last name.
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+    
+    /**
+     * Set first name.
+     *
+     * @param string $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+    
+    /**
+     * Returns first name.
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set address.
+     *
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+    
+    /**
+     * Returns address.
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set zip code.
+     *
+     * @param string $zipCode
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+    }
+    
+    /**
+     * Returns zip code.
+     *
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * Set city.
+     *
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+    
+    /**
+     * Returns city.
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set hiring date.
+     *
+     * @param DateTime $hiringDate
+     */
+    public function setHiringDate($hiringDate)
+    {
+        $this->hiringDate = $hiringDate;
+    }
+    
+    /**
+     * Returns hiring date.
+     *
+     * @return DateTime
+     */
+    public function getHiringDate()
+    {
+        return $this->hiringDate;
     }
 
     /**

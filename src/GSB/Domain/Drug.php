@@ -13,6 +13,7 @@ class Drug
 
     /**
      * Copyrighting.
+     * 
      *
      * @var string
      */

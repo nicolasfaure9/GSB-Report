@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Nouveau rapport de visite{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+<div class="well">
+{{ form_start(reportForm, { 'attr': {'class': 'form-horizontal'} }) }}
+   
+    <div class="form-group">
+       
+        <div class="col-sm-5 col-md-3">
+            
+            
+        </div>
+    </div>
+    
+{{ form_end(reportForm) }}
+</div>
+{% endblock %}
+
